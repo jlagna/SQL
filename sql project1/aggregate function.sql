@@ -1,3 +1,29 @@
+--1.count the number of employee  in each department.
+--this query groups employees by depatment_id and counts how many emp exist in each.
+--2.find the average salary in each department
+--3.find the maximum and minimum salary in each department.
+--4.find the total salary paid in each department.
+--5.count the number of employees in each job role.
+--6.find the average salary for each job role.
+--7.find the maximum salary for each job role.
+--8.find the minimum salary for each job role.
+--9.find the total salary paid for each job role. 
+--10.count the number of employees hired in each year.
+--11.find the total salary paid in each location.
+--12.find the number of employees in each manager's team.
+--13.find the highest alary for each manager.
+--14.find the average salary for each managers .
+--15.count the number of employees hired in each month of the year.
+--16.
+--17.find the job role with the highest average salary.
+--18.find the number of employees in each city.
+--19.a
+--20.find the sum of salaries for employees who have a commission, grouped by department.
+
+
+
+
+
 
 --# oracle SQL Aggregation Questions for sales history table.
 
