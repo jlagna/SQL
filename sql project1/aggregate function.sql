@@ -1,5 +1,119 @@
 --1.count the number of employee  in each department.
 --this query groups employees by depatment_id and counts how many emp exist in each.
+select department_id, count(*) as number_of_employees
+from hr.EMPLOYEES
+group by department_id;
+--2.
+--3.find the maximum and minimum salary in each department.
+--after groupnig based on dept_id then easily find out max and min value 
+
+select department_id,max(salary) as max_sal,min(salary) as min_sal
+from hr.EMPLOYEES
+group by department_id
+order by department_id;
+
+--4.find the total salary paid in each department.
+--based on dept_id grouping then find 
+select department_id,sum(salary) as total_salary
+from hr.employees
+group by department_id;
+
+--5.count the number of employees in each job role.
+--ater groupnig query count no of emp in each job_id
+select job_id,count(*) as no_of_employee
+from hr.employees
+group by job_id;
+
+--6.find the average salary for each job role.
+
+select job_id,avg(salary)
+from hr.employees
+group by job_id;
+
+--7.find the maximum salary for each job role.
+
+select job_id,max(salary)
+from hr.employees
+group by job_id;
+
+--8.find the minimum salary for each job role.
+
+select job_id,min(salary)
+from hr.employees
+group by job_id;
+
+
+--9.find the total salary paid for each job role. 
+
+select job_id,sum(salary)
+from hr.employees
+group by job_id;
+
+--10.count the number of employees hired in each year.
+
+select extract(YEAR from HIRE_DATE) as year, count(*)
+from hr.employees
+group by year;
+
+--11.find the total salary paid in each location.
+
+select d.location_id,sum(e.salary) as total_salary
+from hr.employees e 
+join hr.departments d
+on e.department_id=d.department_id
+group by d.location_id; 
+
+
+
+
+--12.find the number of employees in each manager's team.
+
+select manager_id,count(*) as team_size
+from hr.employees
+where manager_id is not null
+group by manager_id;
+
+
+--13.find the highest salary for each manager.
+select manager_id,max(salary)
+from hr.EMPLOYEES
+where manager_id is not NULL
+group by manager_id; 
+
+
+--14.find the average salary for each managers .
+select manager_id,avg(salary)
+from hr.employees
+group by manager_id
+having manager_id is not null;
+--15.count the number of employees hired in each month of the year.
+
+select extract(MONTH from the hire_date) as hire_month,count(*) as total_hired
+from hr.employees
+group by hire_month;
+--16.find the department with the highest total salary
+select department_id from hr.employees where salary=
+  (select max(salary) from hr.employees);
+
+--17.find the job role with the highest average salary.
+select job_id from hr.employees where salary in
+  (select avg(salary) from hr.employees);
+--18.find the number of employees in each city.
+select l.city,count(*) as total_employees
+  from hr.employees e
+  join hr.departments d on e.department_id=d.department_id
+  join locations l on d.location_id=l.location_d
+  group by l.city;
+--19.a
+--20.find the sum of salaries for employees who have a commission, grouped by department.
+select department_id,sum(salary)
+from hr.employees
+where commission_pct is not null 
+group by department_id;
+
+
+--1.count the number of employee  in each department.
+--this query groups employees by depatment_id and counts how many emp exist in each.
 --2.find the average salary in each department
 --3.find the maximum and minimum salary in each department.
 --4.find the total salary paid in each department.
